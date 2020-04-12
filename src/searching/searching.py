@@ -29,10 +29,20 @@ def binary_search(arr, target):
 
 
 # STRETCH: write a recursive implementation of Binary Search
-def binary_search_recursive(arr, target, low, high):
-
-    middle = (low+high)//2
-
+def binary_search_recursive(arr, target):
     if len(arr) == 0:
-        return -1  # array empty
-    # TO-DO: add missing if/else statements, recursive calls
+        return -1
+    start = 0
+    end = len(arr)-1
+
+    def helper(low, high):
+        if low > high:
+            return -1
+        mid = (low+high)//2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] > target:
+            return helper(low, mid-1)
+        elif arr[mid] < target:
+            return helper(mid+1, high)
+    return helper(start, end)
