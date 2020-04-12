@@ -4,9 +4,9 @@ def selection_sort(arr):
         smallest_index = cur_index
         for j in range(i, len(arr)):
             smallest_index = j if arr[j] < arr[smallest_index] else smallest_index
-        tmp = arr[smallest_index]
-        arr[smallest_index] = arr[cur_index]
-        arr[cur_index] = tmp
+        arr[cur_index], arr[smallest_index] = [
+            arr[smallest_index], arr[cur_index]
+        ]
     return arr
 
 
