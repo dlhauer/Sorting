@@ -10,16 +10,22 @@ def selection_sort(arr):
     return arr
 
 
-selection_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7])
-
-
-# TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
-
+    has_swapped = True
+    end = len(arr) - 1
+    while has_swapped:
+        swap_count = 0
+        for i in range(0, end):
+            if arr[i] > arr[i+1]:
+                swap_count += 1
+                arr[i], arr[i+1] = [arr[i+1], arr[i]]
+        has_swapped = True if swap_count > 0 else False
+        end -= 1
     return arr
 
-
 # STRETCH: implement the Count Sort function below
+
+
 def count_sort(arr, maximum=-1):
 
     return arr
